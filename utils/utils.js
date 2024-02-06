@@ -11,3 +11,12 @@ export async function hashPassword(password) {
         console.log(error);
     }
 }
+
+export async function comparePassword(password, hashedPassword) {
+    try {
+        const validPassword = await bcrypt.compare(password, hashedPassword);
+        return validPassword;
+    } catch (error) {
+        console.log(error);
+    }
+}

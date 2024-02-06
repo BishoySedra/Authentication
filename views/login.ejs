@@ -58,16 +58,17 @@
             left: 0;
             margin: 10px;
         }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
-
-    <!-- <div class="message-container">
-        <div id="message" class="message">
-            <%= message %>
-        </div>
-    </div> -->
-
+    
+    <a href="http://localhost:<%= typeof port !== 'undefined' ? port : 3000 %>/signup" class="signup-button btn btn-primary">Sign Up</a>
     <div class="form-container">
         <h1>Login</h1>
         
@@ -82,11 +83,13 @@
                 <input type="password" id="password" name="password" class="form-control" required>
             </div>
             
+            <div class="form-group">
+                <span class="error-message"> <%= typeof message !== 'undefined' ? message : '' %> </span>
+            </div>
+            
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>
 
-    <!-- Add the signup button -->
-    <a href="http://localhost:<%= typeof port !== 'undefined' ? port : 3000 %>/signup" class="signup-button btn btn-primary">Sign Up</a>
 </body>
 </html>
